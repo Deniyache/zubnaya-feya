@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Кейс: сайт детской стоматологии «Зубная Фея» (концепт)</title>
+<meta name="description" content="Кейс веб-дизайнера: концепт сайта детской стоматологии. Идея, решения по каждому блоку, видео и скриншоты.">
+<meta name="theme-color" content="#FFF4E6">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://deniyache.github.io/zubnaya-feya/case.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Кейс: сайт детской стоматологии «Зубная Фея»">
+<meta property="og:description" content="Как сделать сайт для клиники, которой дети боятся. Идея, блоки, видео.">
+<meta property="og:url" content="https://deniyache.github.io/zubnaya-feya/case.html">
+<meta property="og:image" content="https://deniyache.github.io/zubnaya-feya/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" as="font" type="font/woff" href="fonts/unbounded.woff" crossorigin>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="tokens.css">
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--cream); color: var(--plum); overflow-x: hidden; }
+  img, video { display: block; max-width: 100%; height: auto; }
+  a { color: inherit; }
+  .wrap { width: min(1240px, 100% - 2 * var(--gutter, 20px)); margin-inline: auto; }
+  .cs-sec { padding: clamp(56px, 9vw, 120px) 0; }
+  .cs-dark { background: var(--plum); color: var(--cream); }
+  .cs-pink { background: var(--pink); }
+  .cs-orange { background: var(--orange); color: var(--cream); }
+
+  h1, h2, h3 { font-family: var(--font-display); font-weight: 500; letter-spacing: -0.035em; line-height: 1.02; margin: 0; text-wrap: balance; }
+  h1 { font-size: clamp(2.4rem, 7.4vw, 6.2rem); }
+  h2 { font-size: clamp(1.9rem, 4.6vw, 3.8rem); }
+  h3 { font-size: clamp(1.1rem, 1.8vw, 1.5rem); letter-spacing: -0.025em; line-height: 1.1; }
+  h1 em, h2 em { font-family: var(--font-accent); font-style: italic; font-weight: 700; letter-spacing: -0.01em; font-size: 1.14em; }
+  p { margin: 0; line-height: 1.5; }
+  .lead { font-size: clamp(1.05rem, 1.6vw, 1.35rem); line-height: 1.45; max-width: 36ch; }
+  .body { font-size: 1.0625rem; max-width: 52ch; }
+  .body + .body { margin-top: 1em; }
+
+  /* верх */
+  .cs-top { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; gap: 16px; }
+  .cs-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font-family: var(--font-display); font-weight: 800; color: var(--orange); letter-spacing: -0.02em; }
+  .cs-brand img { width: 44px; height: 43px; }
+  .cs-link { font-weight: 700; text-decoration: none; padding: 10px 0; background: linear-gradient(var(--orange), var(--orange)) 0 100% / 100% 2px no-repeat; }
+
+  .cs-hero { padding: clamp(32px, 6vw, 72px) 0 clamp(48px, 8vw, 104px); }
+  .cs-hero-grid { display: grid; gap: clamp(32px, 5vw, 64px); grid-template-columns: 1.15fr 0.85fr; align-items: center; }
+  .cs-hero h1 { margin-bottom: clamp(20px, 3vw, 36px); }
+  .cs-hero-img { position: relative; }
+  .cs-hero-img img { width: 100%; filter: drop-shadow(0 30px 28px rgba(74, 18, 56, .25)); }
+  .cs-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 32px; margin-top: clamp(28px, 4vw, 48px); padding-top: 24px; border-top: 1.5px solid var(--plum-12); max-width: 560px; }
+  .cs-facts dt { font-size: var(--fs-small); color: var(--plum-75); margin-bottom: 4px; }
+  .cs-facts dd { margin: 0; font-weight: 700; line-height: 1.3; }
+  .cs-cta { display: inline-flex; align-items: center; min-height: 52px; padding: 0 28px; border-radius: var(--radius-pill); background: var(--orange); color: var(--cream); font-weight: 700; text-decoration: none; margin-top: clamp(24px, 3vw, 36px); transition: transform var(--dur-fast) var(--ease-out); }
+  .cs-cta:hover { transform: translateY(-2px); }
+  .cs-cta:focus-visible, .cs-link:focus-visible, a:focus-visible { outline: 3px solid var(--violet); outline-offset: 3px; }
+
+  /* две колонки текста */
+  .cs-two { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(28px, 6vw, 96px); align-items: start; }
+
+  /* идея: палитра и шрифты */
+  .cs-sw { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top: 32px; }
+  .cs-sw div { border-radius: var(--radius-s); aspect-ratio: 1; padding: 10px; display: flex; align-items: flex-end; font-size: 0.75rem; font-weight: 700; }
+  .cs-type { margin-top: 28px; display: grid; gap: 14px; }
+  .cs-type p { line-height: 1.1; }
+  .t-u { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.6rem, 3.4vw, 2.6rem); letter-spacing: -0.03em; }
+  .t-p { font-family: var(--font-accent); font-style: italic; font-weight: 700; font-size: clamp(1.6rem, 3.4vw, 2.6rem); }
+  .t-m { font-weight: 500; font-size: 1.0625rem; }
+  .cs-type small { display: block; font-family: var(--font-body); font-style: normal; font-weight: 500; font-size: var(--fs-small); opacity: .7; letter-spacing: 0; margin-top: 4px; }
+
+  /* лента экранов */
+  .cs-rail { display: flex; gap: clamp(16px, 2.4vw, 32px); overflow-x: auto; scroll-snap-type: x mandatory; padding: 8px max(var(--gutter, 20px), calc((100vw - 1240px) / 2)) 28px; -webkit-overflow-scrolling: touch; scrollbar-width: thin; scrollbar-color: var(--orange) transparent; }
+  .cs-shot { flex: 0 0 min(264px, 70vw); scroll-snap-align: start; }
+  .cs-shot img { width: 100%; border-radius: 28px; box-shadow: 0 18px 40px rgba(74, 18, 56, .22); background: var(--cream); }
+  .cs-shot h3 { margin-top: 18px; }
+  .cs-shot p { margin-top: 8px; font-size: 0.9375rem; line-height: 1.4; }
+  .cs-num { font-family: var(--font-display); font-weight: 800; color: var(--orange); margin-right: .4em; }
+
+  /* видео в рамке телефона */
+  .cs-video-grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(28px, 6vw, 96px); align-items: center; }
+  .cs-phone { width: min(300px, 78vw); margin-inline: auto; padding: 10px; border-radius: 44px; background: var(--plum); box-shadow: 0 30px 60px rgba(74, 18, 56, .35); }
+  .cs-dark .cs-phone { background: #2a0a20; }
+  .cs-phone video { width: 100%; border-radius: 34px; background: var(--cream); }
+
+  /* десктоп-скрины */
+  .cs-desk { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(16px, 2.4vw, 32px); }
+  .cs-desk figure { margin: 0; }
+  .cs-desk figure:first-child { grid-column: 1 / -1; }
+  .cs-desk img { width: 100%; border-radius: 18px; box-shadow: 0 18px 40px rgba(74, 18, 56, .2); }
+  .cs-desk figcaption { margin-top: 12px; font-size: 0.9375rem; color: var(--plum-75); }
+
+  /* технически */
+  .cs-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+  .cs-list li { padding: 18px 0; border-top: 1.5px solid rgba(255, 244, 230, .2); line-height: 1.45; }
+  .cs-list li:last-child { border-bottom: 1.5px solid rgba(255, 244, 230, .2); }
+  .cs-list b { font-family: var(--font-display); font-weight: 500; letter-spacing: -0.02em; display: block; margin-bottom: 4px; color: var(--pink); }
+
+  .cs-note { margin-top: 28px; font-size: 0.9375rem; color: var(--plum-75); max-width: 60ch; }
+  .cs-foot { padding: 40px 0 56px; font-size: 0.9375rem; }
+  .cs-foot-in { display: flex; flex-wrap: wrap; gap: 14px 32px; justify-content: space-between; align-items: center; }
+
+  /* появление при прокрутке, только если JS работает и анимации не отключены */
+  .js .rv { opacity: 0; transform: translateY(22px); transition: opacity var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out); }
+  .js .rv.on { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .js .rv { opacity: 1; transform: none; transition: none; } .cs-cta { transition: none; } }
+
+  @media (max-width: 820px) {
+    .cs-hero-grid, .cs-two, .cs-video-grid { grid-template-columns: 1fr; }
+    .cs-hero-img { max-width: 420px; margin-inline: auto; order: -1; }
+    .cs-desk { grid-template-columns: 1fr; }
+    .cs-sw { grid-template-columns: repeat(5, 1fr); gap: 6px; }
+    .cs-sw div { padding: 6px; font-size: 0.625rem; }
+  }
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="cs-top">
+    <a class="cs-brand" href="./" aria-label="Открыть сайт «Зубная Фея»"><img src="img/logo-emblem.webp" width="44" height="43" alt=""><span>Зубная Фея</span></a>
+    <a class="cs-link" href="./">Открыть сайт</a>
+  </header>
+</div>
+
+<main>
+
+<section class="cs-hero">
+  <div class="wrap cs-hero-grid">
+    <div>
+      <h1>Сайт клиники, <em>где не страшно</em></h1>
+      <p class="lead">Концепт сайта детской стоматологии в Ногинске. Задача простая: чтобы ребёнок захотел прийти, а родителю было понятно, куда нажимать.</p>
+      <dl class="cs-facts">
+        <div><dt>Что сделано</dt><dd>Дизайн, вёрстка, анимация</dd></div>
+        <div><dt>Из чего собран</dt><dd>HTML, CSS и JavaScript, без фреймворков</dd></div>
+        <div><dt>Экраны</dt><dd>Телефон в первую очередь, затем планшет и компьютер</dd></div>
+        <div><dt>Статус</dt><dd>Концепт для портфолио</dd></div>
+      </dl>
+      <a class="cs-cta" href="./">Смотреть живой сайт</a>
+    </div>
+    <div class="cs-hero-img"><img src="img/fairy-hero-hug-wink-tooth.webp" width="1100" height="988" alt="Рыжая фея обнимает улыбающийся зуб и подмигивает"></div>
+  </div>
+</section>
+
+<section class="cs-sec cs-dark">
+  <div class="wrap cs-two">
+    <h2 class="rv">Задача и <em>что мешает</em></h2>
+    <div class="rv">
+      <p class="body">Детская клиника продаёт не только лечение. Ребёнок боится бора, укола, белого халата и очереди, а родитель боится вести его в это место. Обычный сайт клиники этого не замечает: список услуг, фото кабинетов, форма.</p>
+      <p class="body">Мне нужно было сделать сайт, на котором страх виден и снимается сразу. И при этом сохранить то, ради чего заходят: цену, адрес, телефон, кнопку «записаться».</p>
+    </div>
+  </div>
+</section>
+
+<section class="cs-sec">
+  <div class="wrap cs-two">
+    <div class="rv">
+      <h2>Идея: <em>сказочный журнал</em></h2>
+      <div class="cs-sw" aria-label="Палитра">
+        <div style="background:#FFF4E6;box-shadow:inset 0 0 0 1.5px rgba(74,18,56,.18)">кремовый</div>
+        <div style="background:#F26A21;color:#FFF4E6">оранжевый</div>
+        <div style="background:#4A1238;color:#FFF4E6">сливовый</div>
+        <div style="background:#F7B6CF">розовый</div>
+        <div style="background:#A63DD6;color:#fff">фиолет</div>
+      </div>
+      <div class="cs-type" aria-label="Шрифты">
+        <p class="t-u">Unbounded<small>заголовки и цифры</small></p>
+        <p class="t-p">Playfair Display курсив<small>акцент внутри фразы</small></p>
+        <p class="t-m">Manrope<small>текст и интерфейс</small></p>
+      </div>
+    </div>
+    <div class="rv">
+      <p class="body">Сайт читается как страницы детского журнала. У каждого блока своя композиция и своё движение при прокрутке, поэтому он не превращается в одинаковую ленту карточек.</p>
+      <p class="body">Слоган «Без паники, мы феи» работает как правило для всего сайта. Страх не прячем, а показываем и вычёркиваем. Фея ведёт ребёнка от героя до подвала, у неё в каждом блоке своя роль: гид, мастер по осмотру, хранитель карты.</p>
+      <p class="body">Цвета тёплые и плотные, акцент оранжевый. Фиолетовый использован редко, в паре мест. Надувные 3D-буквы и цифры дают игрушечный объём, а Playfair сглаживает его и добавляет «журнальной» интонации.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cs-sec cs-pink" aria-labelledby="blocks-h">
+  <div class="wrap">
+    <h2 id="blocks-h" class="rv">Десять блоков, <em>десять сцен</em></h2>
+    <p class="lead rv" style="margin-top:20px">Листайте вбок. Снимки сделаны с телефона 390 px шириной.</p>
+  </div>
+  <div class="cs-rail" tabindex="0" aria-label="Экраны мобильной версии" style="margin-top:36px">
+    <figure class="cs-shot" style="margin:0"><img src="case/m-top.webp" width="520" height="1126" loading="lazy" alt="Герой: слово ФЕЯ из надувных букв и фея с зубом"><h3><span class="cs-num">01</span>Герой</h3><p>«ФЕЯ» из надувных букв, фея обнимает подмигивающий зуб. Слоган сразу, звонок и запись внизу под большим пальцем.</p></figure>
+    <figure class="cs-shot" style="margin:0"><img src="case/m-strahi.webp" width="520" height="1126" loading="lazy" alt="Блок про страхи: слова бор, укол, белый халат зачёркнуты"><h3><span class="cs-num">02</span>Страхи</h3><p>Слова страхов зачёркиваются прямо при прокрутке, а в конце остаются только феи.</p></figure>
+    <figure class="cs-shot" style="margin:0"><img src="case/m-uslugi.webp" width="520" height="1126" loading="lazy" alt="Услуги: горизонтальная лента карточек"><h3><span class="cs-num">03</span>Услуги</h3><p>Восемь направлений горизонтальной лентой. У каждой карточки свой цвет и огромный номер.</p></figure>
+    <figure class="cs-shot" style="margin:0"><img src="case/m-priem.webp" width="520" height="1126" loading="lazy" alt="Первый приём: линия, по которой летит фея"><h3><span class="cs-num">04</span>Первый приём</h3><p>Четыре шага: знакомство, осмотр, лечение, подарок. Фея летит по линии вниз и «проводит» ребёнка по ним.</p></figure>
+    <figure class="cs-shot" style="margin:0"><img src="case/m-o-klinike.webp" width="520" height="1126" loading="lazy" alt="Цифры: 30 000 и 2010 надувными цифрами"><h3><span class="cs-num">05</span>Цифры</h3><p>Опыт клиники показан не таблицей, а крупными надувными цифрами.</p></figure>
+    <figure class="cs-shot" style="margin:0"><img src="case/m-vrachi.webp" width="520" height="1126" loading="lazy" alt="Врачи: цветные овалы с пометкой скоро"><h3><span class="cs-num">06</span>Врачи</h3><p>Пока без фото: овалы-заглушки в цветах сайта. Когда появятся портреты, они встанут на их место.</p></figure>
+    <figure class="cs-shot" style="margin:0"><img src="case/m-ceny.webp" width="520" height="1126" loading="lazy" alt="Цены: чек и выбор возраста ребёнка"><h3><span class="cs-num">07</span>Цены</h3><p>Прайс в виде чека. Родитель выбирает возраст ребёнка, и цены пересчитываются под него.</p></figure>
+    <figure class="cs-shot" style="margin:0"><img src="case/m-otzyvy.webp" width="520" height="1126" loading="lazy" alt="Отзывы: записки-стикеры"><h3><span class="cs-num">08</span>Отзывы</h3><p>Отзывы как записки-стикеры, которые приклеиваются. В концепте они вымышлены, и это написано под блоком.</p></figure>
+    <figure class="cs-shot" style="margin:0"><img src="case/m-kontakty.webp" width="520" height="1126" loading="lazy" alt="Контакты на оранжевом фоне, карта-схема и фея с меткой"><h3><span class="cs-num">09</span>Контакты</h3><p>Оранжевый фон, схема проезда, фея с меткой. Телефон, адрес и маршрут видны без лишнего поиска.</p></figure>
+    <figure class="cs-shot" style="margin:0"><img src="case/m-podval.webp" width="520" height="1126" loading="lazy" alt="Подвал: гигантская надпись ЗУБНАЯ ФЕЯ и список документов"><h3><span class="cs-num">10</span>Подвал</h3><p>Гигантская надпись, из-за которой выглядывает фея, и колонка из десяти документов клиники.</p></figure>
+  </div>
+</section>
+
+<section class="cs-sec cs-dark" aria-labelledby="vid-h">
+  <div class="wrap cs-video-grid">
+    <div class="cs-phone rv">
+      <video controls playsinline muted preload="none" poster="case/scroll-poster.jpg" width="390" height="844">
+        <source src="case/scroll-mobile.mp4" type="video/mp4">
+        Видео не открылось. Живой сайт доступен по кнопке «Открыть сайт».
+      </video>
+    </div>
+    <div class="rv">
+      <h2 id="vid-h">Как это <em>двигается</em></h2>
+      <p class="body" style="margin-top:24px">Запись экрана телефона: весь сайт сверху донизу. Видно, как вычёркиваются страхи, едет лента услуг, фея летит по линии первого приёма, печатается чек и приклеиваются записки.</p>
+      <p class="body">Видео ускорено в полтора раза, чтобы ролик был короче. На самом сайте всё идёт в обычном темпе.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cs-sec">
+  <div class="wrap">
+    <h2 class="rv">На компьютере <em>то же самое</em></h2>
+    <p class="lead rv" style="margin:20px 0 40px">Те же сцены, но на широком экране буквы, лента и надписи занимают всю ширину.</p>
+    <div class="cs-desk">
+      <figure class="rv"><img src="case/d-top.webp" width="1440" height="900" loading="lazy" alt="Главный экран на компьютере"><figcaption>Главный экран, 1440 × 900</figcaption></figure>
+      <figure class="rv"><img src="case/d-strahi.webp" width="1440" height="900" loading="lazy" alt="Блок про страхи на компьютере"><figcaption>Страхи</figcaption></figure>
+      <figure class="rv"><img src="case/d-uslugi.webp" width="1440" height="900" loading="lazy" alt="Лента услуг на компьютере"><figcaption>Услуги</figcaption></figure>
+      <figure class="rv"><img src="case/d-otzyvy.webp" width="1440" height="900" loading="lazy" alt="Отзывы на компьютере"><figcaption>Отзывы</figcaption></figure>
+      <figure class="rv"><img src="case/d-kontakty.webp" width="1440" height="900" loading="lazy" alt="Контакты на компьютере"><figcaption>Контакты</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="cs-sec cs-dark">
+  <div class="wrap cs-two">
+    <h2 class="rv">Под капотом, <em>коротко</em></h2>
+    <ul class="cs-list rv">
+      <li><b>Без фреймворков и без сервера</b>Обычные файлы: HTML, CSS, JavaScript. Сайт открывается с любого хостинга, в том числе бесплатного.</li>
+      <li><b>Лёгкий вес</b>Вся папка около 3,7 МБ, самая тяжёлая картинка 260 КБ. Картинки в WebP с прозрачностью.</li>
+      <li><b>Свои шрифты</b>Три шрифта лежат на сайте, а не грузятся с чужих серверов. Подмножество с кириллицей, около 170 КБ.</li>
+      <li><b>Одна анимация-петля</b>Все движения идут через один общий цикл, без обработчиков прокрутки. Положение считается по вёрстке, поэтому ничего не раскачивается.</li>
+      <li><b>Запасной вариант</b>Если JavaScript выключен или в системе включено «уменьшить движение», сайт показывает все блоки спокойно и без анимаций.</li>
+      <li><b>Проверено</b>В Chromium на 360, 390, 768, 1440 и 1920 px, без горизонтальной прокрутки. Safari на iPhone и Mac проверяется отдельно, вручную.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="cs-sec cs-orange">
+  <div class="wrap cs-two">
+    <h2 class="rv">Что <em>дальше</em></h2>
+    <div class="rv">
+      <p class="body">Это концепт: телефон, имена врачей, отзывы и названия документов пока заглушки, а цены взяты с сайта клиники. Название и город клиники использованы для демонстрации.</p>
+      <p class="body">Для настоящей клиники следующие шаги такие: реальные портреты врачей, номер телефона и документы, форма записи с отправкой заявок, собственный адрес сайта, карта на Яндекс Картах и подключённая статистика.</p>
+      <a class="cs-cta" style="background:var(--plum)" href="./">Открыть сайт</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="cs-foot">
+  <div class="wrap cs-foot-in">
+    <p>Концепт-работа. Не является официальным сайтом клиники.</p>
+    <a class="cs-link" href="https://github.com/Deniyache">Автор на GitHub</a>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var els = document.querySelectorAll('.rv');
+  if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    els.forEach(function (e) { e.classList.add('on'); }); return;
+  }
+  var io = new IntersectionObserver(function (list) {
+    list.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('on'); io.unobserve(x.target); } });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+  els.forEach(function (e) { io.observe(e); });
+  // страховка: если что-то не успело показаться, показываем через 2.5 секунды
+  setTimeout(function () { els.forEach(function (e) { e.classList.add('on'); }); }, 2500);
+})();
+</script>
+</body>
+</html>
