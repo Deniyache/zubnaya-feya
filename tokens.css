@@ -1,0 +1,93 @@
+/* 03. Токены дизайн-системы «Зубная Фея»
+   Единственный источник цветов, шрифтов и отступов.
+   Новые значения в коде не придумываем, только берём отсюда. */
+
+
+:root {
+  /* Цвета */
+  --cream: #FFF4E6;        /* основной фон («бумага») */
+  --orange: #F26A21;       /* главный, гигантские буквы, кнопки */
+  --plum: #4A1238;         /* текст и тёмные блоки */
+  --pink: #F7B6CF;         /* нежный акцент, пузырьки, подложки */
+  --violet: #A63DD6;       /* редкий акцент, 1-2 места на сайт */
+  --white: #FFFFFF;
+
+  /* Производные (прозрачности) */
+  --plum-60: rgba(74, 18, 56, 0.6);
+  --plum-75: rgba(74, 18, 56, 0.78);
+  --plum-12: rgba(74, 18, 56, 0.12);
+  --orange-12: rgba(242, 106, 33, 0.12);
+
+  /* Шрифты */
+  --font-display: "Unbounded", sans-serif;        /* гигантские слова, заголовки */
+  --font-accent: "Playfair Display", serif;       /* курсивный акцент в той же фразе */
+  --font-body: "Manrope", sans-serif;             /* текст и интерфейс */
+
+  /* Шкала размеров (fluid, мобильный -> десктоп) */
+  --fs-giant: clamp(7rem, 32vw, 30rem);   /* «ФЕЯ» на фоне героя */
+  --fs-h1: clamp(2.5rem, 7vw, 6rem);
+  --fs-h2: clamp(2rem, 5vw, 4rem);
+  --fs-h3: clamp(1.25rem, 2.2vw, 1.75rem);
+  --fs-body: 1rem;
+  --fs-hero-line: clamp(2.25rem, 4.1vw, 3.75rem);  /* слоган в углу героя */
+  --fs-small: 0.8125rem;                  /* мелкие подписи по углам */
+  --fs-number: clamp(5rem, 22vw, 20rem);  /* огромные номера и цифры */
+
+  /* Отступы: шкала 8px */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 32px;
+  --space-4: 64px;
+  --space-5: 128px;
+
+  /* Формы */
+  --radius-s: 12px;
+  --radius-m: 28px;
+  --radius-l: 64px;
+  --radius-pill: 999px;
+
+  /* Тени (мягкие, тёплые) */
+  --shadow-soft: 0 24px 60px -20px rgba(74, 18, 56, 0.25);
+  --shadow-fairy: 0 30px 50px -25px rgba(242, 106, 33, 0.45);
+
+  /* Движение */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 0.25s;
+  --dur-base: 0.6s;
+  --dur-slow: 1.2s;
+
+  /* Сетка */
+  --container: 1440px;
+  --gutter: clamp(16px, 4vw, 48px);
+}
+
+/* Отключение анимаций */
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur-fast: 0s; --dur-base: 0s; --dur-slow: 0s; }
+}
+
+/* База */
+body {
+  background: var(--cream);
+  color: var(--plum);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.5;
+}
+
+/* Кнопка в скобках (как в референсе Nova) */
+.btn-bracket {
+  font-family: var(--font-body);
+  font-weight: 700;
+  color: var(--plum);
+  background: none;
+  border: 0;
+  padding: var(--space-1) 0;
+  position: relative;
+}
+.btn-bracket::before { content: "( "; }
+.btn-bracket::after  { content: " )"; }
+.btn-bracket:hover   { color: var(--orange); }
+
+/* Акцентная смесь шрифтов в одной фразе: <em> внутри заголовка */
+h1 em, h2 em { font-family: var(--font-accent); font-style: italic; font-weight: 500; }

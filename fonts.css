@@ -1,0 +1,8 @@
+/* Шрифты лежат на сайте (самохостинг), лицензия OFL: см. fonts/OFL-*.txt.
+   Подмножество: латиница + кириллица. Переменные шрифты, нужные веса вырезаны. */
+@font-face { font-family: "Unbounded"; font-style: normal; font-weight: 300 800; font-display: swap;
+  src: url("fonts/unbounded.woff") format("woff"); }
+@font-face { font-family: "Playfair Display"; font-style: italic; font-weight: 500 700; font-display: swap;
+  src: url("fonts/playfair-italic.woff") format("woff"); }
+@font-face { font-family: "Manrope"; font-style: normal; font-weight: 400 700; font-display: swap;
+  src: url("fonts/manrope.woff") format("woff"); }
